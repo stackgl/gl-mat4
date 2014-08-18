@@ -20,7 +20,7 @@ function rotate(out, a, rad, axis) {
         b10, b11, b12,
         b20, b21, b22;
 
-    if (Math.abs(len) < GLMAT_EPSILON) { return null; }
+    if (Math.abs(len) < 0.000001) { return null; }
     
     len = 1 / len;
     x *= len;

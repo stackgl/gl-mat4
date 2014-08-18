@@ -1,7 +1,15 @@
 var fs = require('fs')
 var path = require('path')
 
+//TODO: curl this in?
+//https://raw.githubusercontent.com/toji/gl-matrix/master/src/gl-matrix/mat4.js
+// ^ had to manually remove aliases like 'mul' from the above before parsing
 var orig = fs.readFileSync(__dirname+'/original.js', 'utf8')
+
+//TODO: common module that exports these?
+orig = orig.replace(/GLMAT\_EPSILON/g, '0.000001')
+        .replace(/GLMAT\_ARRAY\_TYPE/g, 'Float32Array')
+        .replace(/GLMAT\_RANDOM/g, 'Math.random')
 
 // var block = /(\/\*[^]*?\*\/)/g
 // var func = /mat4\.([a-z0-9\-\_]+).*\=.*function/ig

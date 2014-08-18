@@ -25,97 +25,126 @@ var scale = require('gl-mat3/scale')
 
 ## API
 
-  - [mat3.adjoint()](#mat3adjointoutmat3amat3)
-  - [mat3.clone()](#mat3cloneamat3)
-  - [mat3.copy()](#mat3copyoutmat3amat3)
-  - [mat3.create()](#mat3create)
-  - [mat3.determinant()](#mat3determinantamat3)
-  - [mat3.frob()](#mat3frobamat3)
-  - [mat3.fromMat2d()](#mat3frommat2doutmat3amat2d)
-  - [mat3.fromMat4()](#mat3frommat4outmat3amat4)
-  - [mat3.fromQuat()](#mat3fromquatoutmat3qquat)
-  - [mat3.identity()](#mat3identityoutmat3)
-  - [mat3.invert()](#mat3invertoutmat3amat3)
-  - [mat3.multiply()](#mat3multiplyoutmat3amat3bmat3)
-  - [mat3.normalFromMat4()](#mat3normalfrommat4outmat3amat4)
-  - [mat3.rotate()](#mat3rotateoutmat3amat3radnumber)
-  - [mat3.scale()](#mat3scaleoutmat3amat3vvec2)
-  - [mat3.str()](#mat3strmatmat3)
-  - [mat3.translate()](#mat3translateoutmat3amat3vvec2)
-  - [mat3.transpose()](#mat3transposeoutmat3amat3)
+  - [adjoint()](#adjointoutmat4amat4)
+  - [clone()](#cloneamat4)
+  - [copy()](#copyoutmat4amat4)
+  - [create()](#create)
+  - [determinant()](#determinantamat4)
+  - [fromQuat()](#fromquatoutmat4qquat4)
+  - [fromRotationTranslation()](#fromrotationtranslationoutmat4qquat4vvec3)
+  - [frustum()](#frustumoutmat4leftnumberrightnumberbottomnumbertopnumbernearnumberfarnumber)
+  - [identity()](#identityoutmat4)
+  - [invert()](#invertoutmat4amat4)
+  - [lookAt()](#lookatoutmat4eyevec3centervec3upvec3)
+  - [multiply()](#multiplyoutmat4amat4bmat4)
+  - [ortho()](#orthooutmat4leftnumberrightnumberbottomnumbertopnumbernearnumberfarnumber)
+  - [perspective()](#perspectiveoutmat4fovynumberaspectnumbernearnumberfarnumber)
+  - [rotate()](#rotateoutmat4amat4radnumberaxisvec3)
+  - [rotateX()](#rotatexoutmat4amat4radnumber)
+  - [rotateY()](#rotateyoutmat4amat4radnumber)
+  - [rotateZ()](#rotatezoutmat4amat4radnumber)
+  - [scale()](#scaleoutmat4amat4vvec3)
+  - [str()](#strmatmat4)
+  - [translate()](#translateoutmat4amat4vvec3)
+  - [transpose()](#transposeoutmat4amat4)
 
-## mat3.adjoint(out:mat3, a:mat3)
+## adjoint(out:mat4, a:mat4)
 
-  Calculates the adjugate of a mat3
+  Calculates the adjugate of a mat4
 
-## mat3.clone(a:mat3)
+## clone(a:mat4)
 
-  Creates a new mat3 initialized with values from an existing matrix
+  Creates a new mat4 initialized with values from an existing matrix
 
-## mat3.copy(out:mat3, a:mat3)
+## copy(out:mat4, a:mat4)
 
-  Copy the values from one mat3 to another
+  Copy the values from one mat4 to another
 
-## mat3.create()
+## create()
 
-  Creates a new identity mat3
+  Creates a new identity mat4
 
-## mat3.determinant(a:mat3)
+## determinant(a:mat4)
 
-  Calculates the determinant of a mat3
+  Calculates the determinant of a mat4
 
-## mat3.frob(a:mat3)
+## fromQuat(out:mat4, q:quat4)
 
-  Returns Frobenius norm of a mat3
+  Creates a matrix from a quaternion rotation.
 
-## mat3.fromMat2d(out:mat3, a:mat2d)
+## fromRotationTranslation(out:mat4, q:quat4, v:vec3)
 
-  Copies the values from a mat2d into a mat3
+  Creates a matrix from a quaternion rotation and vector translation
+  This is equivalent to (but much faster than):
+  
+```js
+  mat4.identity(dest);
+  mat4.translate(dest, vec);
+  var quatMat = mat4.create();
+  quat4.toMat4(quat, quatMat);
+  mat4.multiply(dest, quatMat);
+```
 
-## mat3.fromMat4(out:mat3, a:mat4)
+## frustum(out:mat4, left:Number, right:Number, bottom:Number, top:Number, near:Number, far:Number)
 
-  Copies the upper-left 3x3 values into the given mat3.
+  Generates a frustum matrix with the given bounds
 
-## mat3.fromQuat(out:mat3, q:quat)
+## identity(out:mat4)
 
-  Calculates a 3x3 matrix from the given quaternion
+  Set a mat4 to the identity matrix
 
-## mat3.identity(out:mat3)
+## invert(out:mat4, a:mat4)
 
-  Set a mat3 to the identity matrix
+  Inverts a mat4
 
-## mat3.invert(out:mat3, a:mat3)
+## lookAt(out:mat4, eye:vec3, center:vec3, up:vec3)
 
-  Inverts a mat3
+  Generates a look-at matrix with the given eye position, focal point, and up axis
 
-## mat3.multiply(out:mat3, a:mat3, b:mat3)
+## multiply(out:mat4, a:mat4, b:mat4)
 
-  Multiplies two mat3's
+  Multiplies two mat4's
 
-## mat3.normalFromMat4(out:mat3, a:mat4)
+## ortho(out:mat4, left:number, right:number, bottom:number, top:number, near:number, far:number)
 
-  Calculates a 3x3 normal matrix (transpose inverse) from the 4x4 matrix
+  Generates a orthogonal projection matrix with the given bounds
 
-## mat3.rotate(out:mat3, a:mat3, rad:Number)
+## perspective(out:mat4, fovy:number, aspect:number, near:number, far:number)
 
-  Rotates a mat3 by the given angle
+  Generates a perspective projection matrix with the given bounds
 
-## mat3.scale(out:mat3, a:mat3, v:vec2)
+## rotate(out:mat4, a:mat4, rad:Number, axis:vec3)
 
-  Scales the mat3 by the dimensions in the given vec2
+  Rotates a mat4 by the given angle
 
-## mat3.str(mat:mat3)
+## rotateX(out:mat4, a:mat4, rad:Number)
 
-  Returns a string representation of a mat3
+  Rotates a matrix by the given angle around the X axis
 
-## mat3.translate(out:mat3, a:mat3, v:vec2)
+## rotateY(out:mat4, a:mat4, rad:Number)
 
-  Translate a mat3 by the given vector
+  Rotates a matrix by the given angle around the Y axis
 
-## mat3.transpose(out:mat3, a:mat3)
+## rotateZ(out:mat4, a:mat4, rad:Number)
 
-  Transpose the values of a mat3
+  Rotates a matrix by the given angle around the Z axis
+
+## scale(out:mat4, a:mat4, v:vec3)
+
+  Scales the mat4 by the dimensions in the given vec3
+
+## str(mat:mat4)
+
+  Returns a string representation of a mat4
+
+## translate(out:mat4, a:mat4, v:vec3)
+
+  Translate a mat4 by the given vector
+
+## transpose(out:mat4, a:mat4)
+
+  Transpose the values of a mat4
 
 ## License
 
-[zlib](http://en.wikipedia.org/wiki/Zlib_License). See [LICENSE.md](http://github.com/hughsk/gl-mat3/blob/master/LICENSE.md) for details.
+[zlib](http://en.wikipedia.org/wiki/Zlib_License). See [LICENSE.md](https://github.com/stackgl/gl-mat4/blob/master/LICENSE.md) for details.
