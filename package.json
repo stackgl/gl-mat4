@@ -1,0 +1,43 @@
+{
+  "name": "gl-mat4",
+  "version": "1.0.0",
+  "description": "gl-matrix's mat4, split into smaller pieces",
+  "main": "index.js",
+  "scripts": {
+    "get-docs": "cat *.js | dox --api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gl-modules/gl-mat4"
+  },
+  "keywords": [
+    "gl-matrix",
+    "matrix",
+    "math",
+    "gl",
+    "mat4",
+    "mat4x4",
+    "4x4",
+    "mat",
+    "vector",
+    "maths"
+  ],
+  "license": {
+    "type": "zlib",
+    "url": "http://github.com/gl-modules/gl-mat3/blob/master/LICENSE.md"
+  },
+  "contributors": [
+    "Brandon Jones <tojiro@gmail.com>",
+    "Colin MacKenzie IV <sinisterchipmunk@gmail.com>",
+    "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
+    "Matt DesLauriers <dave.des@gmail.com>"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "dox": "git://github.com/hughsk/dox#api-context"
+  },
+  "bugs": {
+    "url": "https://github.com/gl-modules/gl-mat4/issues"
+  },
+  "homepage": "https://github.com/gl-modules/gl-mat4"
+}
