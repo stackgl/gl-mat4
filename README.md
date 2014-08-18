@@ -1,5 +1,3 @@
-# ! work in progress !
-
 # gl-mat4 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
 Part of a fork of [@toji](http://github.com/toji)'s
