@@ -17,8 +17,8 @@ from their files.
 For example, the following are equivalent:
 
 ``` javascript
-var scale = require('gl-mat3').scale
-var scale = require('gl-mat3/scale')
+var scale = require('gl-mat4').scale
+var scale = require('gl-mat4/scale')
 ```
 
 ## API
