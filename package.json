@@ -28,8 +28,7 @@
   },
   "contributors": [
     "Brandon Jones <tojiro@gmail.com>",
-    "Colin MacKenzie IV <sinisterchipmunk@gmail.com>",
-    "Matt DesLauriers <dave.des@gmail.com>"
+    "Colin MacKenzie IV <sinisterchipmunk@gmail.com>"
   ],
   "dependencies": {},
   "devDependencies": {
