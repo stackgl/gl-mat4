@@ -1,6 +1,6 @@
 {
   "name": "gl-mat4",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "gl-matrix's mat4, split into smaller pieces",
   "main": "index.js",
   "scripts": {
