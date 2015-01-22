@@ -23,7 +23,7 @@ var scale = require('gl-mat4/scale')
 
 ## API
 
-  - [adjoint()](#adjointoutmat4amat4)
+  - [adjoint()](#adjointoutmat4-amat4)
   - [clone()](#cloneamat4)
   - [copy()](#copyoutmat4amat4)
   - [create()](#create)
