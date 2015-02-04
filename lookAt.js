@@ -1,3 +1,5 @@
+var identity = require('./identity');
+
 module.exports = lookAt;
 
 /**
@@ -24,7 +26,7 @@ function lookAt(out, eye, center, up) {
     if (Math.abs(eyex - centerx) < 0.000001 &&
         Math.abs(eyey - centery) < 0.000001 &&
         Math.abs(eyez - centerz) < 0.000001) {
-        return mat4.identity(out);
+        return identity(out);
     }
 
     z0 = eyex - centerx;
