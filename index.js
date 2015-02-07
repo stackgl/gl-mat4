@@ -18,6 +18,7 @@ module.exports = {
   , fromQuat: require('./fromQuat')
   , frustum: require('./frustum')
   , perspective: require('./perspective')
+  , perspectiveFromFieldOfView: require('./perspectiveFromFieldOfView')
   , ortho: require('./ortho')
   , lookAt: require('./lookAt')
   , str: require('./str')
