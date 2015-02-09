@@ -37,6 +37,7 @@ var scale = require('gl-mat4/scale')
   - [multiply()](#multiplyoutmat4-amat4-bmat4)
   - [ortho()](#orthooutmat4-leftnumber-rightnumber-bottomnumber-topnumber-nearnumber-farnumber)
   - [perspective()](#perspectiveoutmat4-fovynumber-aspectnumber-nearnumber-farnumber)
+  - [perspectiveFromFieldOfView()](#perspectiveFromFieldOfViewoutmat4-fovobject-nearnumber-farnumber)
   - [rotate()](#rotateoutmat4-amat4-radnumber-axisvec3)
   - [rotateX()](#rotatexoutmat4-amat4-radnumber)
   - [rotateY()](#rotateyoutmat4-amat4-radnumber)
@@ -110,6 +111,10 @@ var scale = require('gl-mat4/scale')
 ## perspective(out:mat4, fovy:number, aspect:number, near:number, far:number)
 
   Generates a perspective projection matrix with the given bounds
+
+## perspectiveFromFieldOfView(out:mat4, fov:object, near:number, far:number)
+
+  Generates a perspective projection matrix with the given field of view.
 
 ## rotate(out:mat4, a:mat4, rad:Number, axis:vec3)
 
