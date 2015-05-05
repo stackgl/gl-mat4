@@ -23,7 +23,7 @@
     "maths"
   ],
   "license": {
-    "type": "zlib",
+    "type": "Zlib",
     "url": "http://github.com/stackgl/gl-mat4/blob/master/LICENSE.md"
   },
   "contributors": [
