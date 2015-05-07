@@ -6,10 +6,6 @@ var path = require('path')
 // ^ had to manually remove aliases like 'mul' from the above before parsing
 var orig = fs.readFileSync(__dirname+'/original.js', 'utf8')
 
-//TODO: common module that exports these?
-orig = orig.replace(/GLMAT\_EPSILON/g, '0.000001')
-        .replace(/GLMAT\_ARRAY\_TYPE/g, 'Float32Array')
-        .replace(/GLMAT\_RANDOM/g, 'Math.random')
 
 // var block = /(\/\*[^]*?\*\/)/g
 // var func = /mat4\.([a-z0-9\-\_]+).*\=.*function/ig
@@ -36,6 +32,15 @@ while (match = reg.exec(orig)) {
         var name = lastMatch[2].trim()
         var body = orig.substring( start, end )
         var file = 'module.exports = '+name+';\n\n'
+        if(body.indexOf('GLMAT_ARRAY_TYPE') > -1) {
+            file +=  "var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE;\n\n"
+        };
+        if(body.indexOf('GLMAT_RANDOM') > -1) {
+            file +=  "var GLMAT_RANDOM = require('./common').GLMAT_RANDOM;\n\n"
+        };
+        if(body.indexOf('GLMAT_EPSILON') > -1) {
+            file +=  "var GLMAT_EPSILON = require('./common').GLMAT_EPSILON;\n\n"
+        };
         file += lastMatch[1]+'\nfunction '+name+body.trim() 
 
         var filename = name+'.js'
