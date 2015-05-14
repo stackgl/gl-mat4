@@ -1,6 +1,6 @@
 module.exports = clone;
 
-var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE;
+var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE();
 
 /**
  * Creates a new mat4 initialized with values from an existing matrix

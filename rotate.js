@@ -1,6 +1,6 @@
 module.exports = rotate;
 
-var GLMAT_EPSILON = require('./common').GLMAT_EPSILON;
+var GLMAT_EPSILON = require('./common').GLMAT_EPSILON();
 
 /**
  * Rotates a mat4 by the given angle around the given axis

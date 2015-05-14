@@ -1,6 +1,6 @@
 module.exports = create;
 
-var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE;
+var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE();
 
 /**
  * Creates a new identity mat4

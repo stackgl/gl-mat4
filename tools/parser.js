@@ -33,13 +33,13 @@ while (match = reg.exec(orig)) {
         var body = orig.substring( start, end )
         var file = 'module.exports = '+name+';\n\n'
         if(body.indexOf('GLMAT_ARRAY_TYPE') > -1) {
-            file +=  "var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE;\n\n"
+            file +=  "var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE();\n\n"
         };
         if(body.indexOf('GLMAT_RANDOM') > -1) {
-            file +=  "var GLMAT_RANDOM = require('./common').GLMAT_RANDOM;\n\n"
+            file +=  "var GLMAT_RANDOM = require('./common').GLMAT_RANDOM();\n\n"
         };
         if(body.indexOf('GLMAT_EPSILON') > -1) {
-            file +=  "var GLMAT_EPSILON = require('./common').GLMAT_EPSILON;\n\n"
+            file +=  "var GLMAT_EPSILON = require('./common').GLMAT_EPSILON();\n\n"
         };
         file += lastMatch[1]+'\nfunction '+name+body.trim() 
 

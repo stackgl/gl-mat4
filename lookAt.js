@@ -2,7 +2,7 @@ var identity = require('./identity');
 
 module.exports = lookAt;
 
-var GLMAT_EPSILON = require('./common').GLMAT_EPSILON;
+var GLMAT_EPSILON = require('./common').GLMAT_EPSILON();
 
 /**
  * Generates a look-at matrix with the given eye position, focal point, and up axis
