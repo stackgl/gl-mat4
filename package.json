@@ -22,10 +22,7 @@
     "vector",
     "maths"
   ],
-  "license": {
-    "type": "Zlib",
-    "url": "http://github.com/stackgl/gl-mat4/blob/master/LICENSE.md"
-  },
+  "license": "Zlib",
   "contributors": [
     "Brandon Jones <tojiro@gmail.com>",
     "Colin MacKenzie IV <sinisterchipmunk@gmail.com>"
