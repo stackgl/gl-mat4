@@ -30,6 +30,9 @@ var scale = require('gl-mat4/scale')
   - [determinant()](#determinantamat4)
   - [fromQuat()](#fromquatoutmat4-qquat4)
   - [fromRotationTranslation()](#fromrotationtranslationoutmat4-qquat4-vvec3)
+  - [fromXRotation()](#fromxrotationoutmat4-radnumber)
+  - [fromYRotation()](#fromyrotationoutmat4-radnumber)
+  - [fromZRotation()](#fromzrotationoutmat4-radnumber)
   - [frustum()](#frustumoutmat4-leftnumber-rightnumber-bottomnumber-topnumber-nearnumber-farnumber)
   - [identity()](#identityoutmat4)
   - [invert()](#invertoutmat4-amat4)
@@ -82,6 +85,36 @@ var scale = require('gl-mat4/scale')
   var quatMat = mat4.create();
   quat4.toMat4(quat, quatMat);
   mat4.multiply(dest, quatMat);
+```
+
+## fromXRotation(out:mat4, rad:Number)
+
+  Creates a matrix from the given angle around the X axis
+  This is equivalent to (but much faster than):
+  
+```js
+  mat4.identity(dest)
+  mat4.rotateX(dest, dest, rad)
+```
+
+## fromYRotation(out:mat4, rad:Number)
+
+  Creates a matrix from the given angle around the Y axis
+  This is equivalent to (but much faster than):
+  
+```js
+  mat4.identity(dest)
+  mat4.rotateY(dest, dest, rad)
+```
+
+## fromZRotation(out:mat4, rad:Number)
+
+  Creates a matrix from the given angle around the Z axis
+  This is equivalent to (but much faster than):
+  
+```js
+  mat4.identity(dest)
+  mat4.rotateZ(dest, dest, rad)
 ```
 
 ## frustum(out:mat4, left:Number, right:Number, bottom:Number, top:Number, near:Number, far:Number)
