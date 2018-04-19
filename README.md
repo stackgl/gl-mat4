@@ -30,6 +30,8 @@ var scale = require('gl-mat4/scale')
   - [determinant()](#determinantamat4)
   - [fromQuat()](#fromquatoutmat4-qquat4)
   - [fromRotationTranslation()](#fromrotationtranslationoutmat4-qquat4-vvec3)
+  - [fromScaling()](#fromscalingoutmat4-vvec3)
+  - [fromTranslation()](#fromtranslationoutmat4-vvec3)
   - [frustum()](#frustumoutmat4-leftnumber-rightnumber-bottomnumber-topnumber-nearnumber-farnumber)
   - [identity()](#identityoutmat4)
   - [invert()](#invertoutmat4-amat4)
@@ -73,8 +75,7 @@ var scale = require('gl-mat4/scale')
 
 ## fromRotationTranslation(out:mat4, q:quat4, v:vec3)
 
-  Creates a matrix from a quaternion rotation and vector translation
-  This is equivalent to (but much faster than):
+  Creates a matrix from a quaternion rotation and vector translation. This is equivalent to (but much faster than):
   
 ```js
   mat4.identity(dest);
@@ -82,6 +83,31 @@ var scale = require('gl-mat4/scale')
   var quatMat = mat4.create();
   quat4.toMat4(quat, quatMat);
   mat4.multiply(dest, quatMat);
+```
+
+## fromScaling(out:mat4, v:vec3)
+  Creates a matrix from a vector scaling. This is equivalent to (but much faster than):
+ 
+```js
+  mat4.identity(dest);
+  mat4.translate(dest, dest, vec);
+```
+
+## fromTranslation(out:mat4, v:vec3)
+  Creates a matrix from a vector translation. This is equivalent to (but much faster than):
+ 
+```js
+  mat4.identity(dest);
+  mat4.translate(dest, dest, vec);
+```
+
+## fromTranslation(out:mat4, v:vec3)
+  Creates a matrix from a vector translation
+  This is equivalent to (but much faster than):
+ 
+```js
+  mat4.identity(dest);
+  mat4.translate(dest, dest, vec);
 ```
 
 ## frustum(out:mat4, left:Number, right:Number, bottom:Number, top:Number, near:Number, far:Number)
