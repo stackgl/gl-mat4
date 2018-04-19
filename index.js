@@ -16,6 +16,8 @@ module.exports = {
   , rotateZ: require('./rotateZ')
   , fromRotation: require('./fromRotation')
   , fromRotationTranslation: require('./fromRotationTranslation')
+  , fromScaling: require('./fromScaling')
+  , fromTranslation: require('./fromTranslation')
   , fromXRotation: require('./fromXRotation')
   , fromYRotation: require('./fromYRotation')
   , fromZRotation: require('./fromZRotation')
