@@ -29,9 +29,13 @@ var scale = require('gl-mat4/scale')
   - [create()](#create)
   - [determinant()](#determinantamat4)
   - [fromQuat()](#fromquatoutmat4-qquat4)
+  - [fromRotation()](#fromrotationoutmat4-radnumber-axisvec3)
   - [fromRotationTranslation()](#fromrotationtranslationoutmat4-qquat4-vvec3)
   - [fromScaling()](#fromscalingoutmat4-vvec3)
   - [fromTranslation()](#fromtranslationoutmat4-vvec3)
+  - [fromXRotation()](#fromxrotationoutmat4-radnumber)
+  - [fromYRotation()](#fromyrotationoutmat4-radnumber)
+  - [fromZRotation()](#fromzrotationoutmat4-radnumber)
   - [frustum()](#frustumoutmat4-leftnumber-rightnumber-bottomnumber-topnumber-nearnumber-farnumber)
   - [identity()](#identityoutmat4)
   - [invert()](#invertoutmat4-amat4)
@@ -73,6 +77,16 @@ var scale = require('gl-mat4/scale')
 
   Creates a matrix from a quaternion rotation.
 
+## fromRotation(out:mat4, rad:number, axis:vec3)
+
+  Creates a matrix from a given angle around a given axis
+  This is equivalent to (but much faster than):
+
+```js
+  mat4.identity(dest);
+  mat4.rotate(dest, dest, rad, axis);
+```
+
 ## fromRotationTranslation(out:mat4, q:quat4, v:vec3)
 
   Creates a matrix from a quaternion rotation and vector translation. This is equivalent to (but much faster than):
@@ -108,6 +122,36 @@ var scale = require('gl-mat4/scale')
 ```js
   mat4.identity(dest);
   mat4.translate(dest, dest, vec);
+```
+
+## fromXRotation(out:mat4, rad:Number)
+
+  Creates a matrix from the given angle around the X axis
+  This is equivalent to (but much faster than):
+  
+```js
+  mat4.identity(dest)
+  mat4.rotateX(dest, dest, rad)
+```
+
+## fromYRotation(out:mat4, rad:Number)
+
+  Creates a matrix from the given angle around the Y axis
+  This is equivalent to (but much faster than):
+  
+```js
+  mat4.identity(dest)
+  mat4.rotateY(dest, dest, rad)
+```
+
+## fromZRotation(out:mat4, rad:Number)
+
+  Creates a matrix from the given angle around the Z axis
+  This is equivalent to (but much faster than):
+  
+```js
+  mat4.identity(dest)
+  mat4.rotateZ(dest, dest, rad)
 ```
 
 ## frustum(out:mat4, left:Number, right:Number, bottom:Number, top:Number, near:Number, far:Number)
