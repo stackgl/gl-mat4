@@ -42,6 +42,7 @@ var scale = require('gl-mat4/scale')
   - [rotateX()](#rotatexoutmat4-amat4-radnumber)
   - [rotateY()](#rotateyoutmat4-amat4-radnumber)
   - [rotateZ()](#rotatezoutmat4-amat4-radnumber)
+  - [fromRotation()](#fromrotationoutmat4-radnumber-axisvec3)
   - [scale()](#scaleoutmat4-amat4-vvec3)
   - [str()](#strmatmat4)
   - [translate()](#translateoutmat4-amat4-vvec3)
@@ -70,6 +71,16 @@ var scale = require('gl-mat4/scale')
 ## fromQuat(out:mat4, q:quat4)
 
   Creates a matrix from a quaternion rotation.
+
+## fromRotation(out:mat4, rad:number, axis:vec3)
+
+  Creates a matrix from a given angle around a given axis
+  This is equivalent to (but much faster than):
+
+```js
+  mat4.identity(dest);
+  mat4.rotate(dest, dest, rad, axis);
+```
 
 ## fromRotationTranslation(out:mat4, q:quat4, v:vec3)
 
