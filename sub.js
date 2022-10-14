@@ -1,4 +1,4 @@
-module.exports = add;
+module.exports = sub;
 
 /**
  * Subtracts two mat4's
@@ -7,7 +7,7 @@ module.exports = add;
  * @param {mat4} the second operand
  * @returns {mat4} out
  */
-function add(out, a, b) {
+function sub(out, a, b) {
     out[0] = a[0] - b[0];
     out[1] = a[1] - b[1];
     out[2] = a[2] - b[2];
