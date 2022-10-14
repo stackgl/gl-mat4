@@ -1,5 +1,6 @@
 module.exports = {
-  create: require('./create')
+  add: require('./add')
+  , create: require('./create')
   , clone: require('./clone')
   , copy: require('./copy')
   , identity: require('./identity')
@@ -28,4 +29,5 @@ module.exports = {
   , ortho: require('./ortho')
   , lookAt: require('./lookAt')
   , str: require('./str')
+  , sub: require('./sub')
 }

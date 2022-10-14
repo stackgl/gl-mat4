@@ -23,6 +23,7 @@ var scale = require('gl-mat4/scale')
 
 ## API
 
+  - [add()](#addoutmat4-amat4-bmat4)
   - [adjoint()](#adjointoutmat4-amat4)
   - [clone()](#cloneamat4)
   - [copy()](#copyoutmat4-amat4)
@@ -50,8 +51,13 @@ var scale = require('gl-mat4/scale')
   - [rotateZ()](#rotatezoutmat4-amat4-radnumber)
   - [scale()](#scaleoutmat4-amat4-vvec3)
   - [str()](#strmatmat4)
+  - [sub()](#suboutmat4-amat4-bmat4)
   - [translate()](#translateoutmat4-amat4-vvec3)
   - [transpose()](#transposeoutmat4-amat4)
+
+## add(out:mat4, a:mat4, b:mat4)
+
+  Adds two mat4's
 
 ## adjoint(out:mat4, a:mat4)
 
@@ -209,6 +215,10 @@ var scale = require('gl-mat4/scale')
 ## str(mat:mat4)
 
   Returns a string representation of a mat4
+
+## sub(out:mat4, a:mat4, b:mat4)
+
+  Subtracts two mat4's
 
 ## translate(out:mat4, a:mat4, v:vec3)
 
