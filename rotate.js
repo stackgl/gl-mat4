@@ -1,7 +1,9 @@
 module.exports = rotate;
 
+var GLMAT_EPSILON = require('./common').GLMAT_EPSILON();
+
 /**
- * Rotates a mat4 by the given angle
+ * Rotates a mat4 by the given angle around the given axis
  *
  * @param {mat4} out the receiving matrix
  * @param {mat4} a the matrix to rotate
@@ -20,7 +22,7 @@ function rotate(out, a, rad, axis) {
         b10, b11, b12,
         b20, b21, b22;
 
-    if (Math.abs(len) < 0.000001) { return null; }
+    if (Math.abs(len) < GLMAT_EPSILON) { return null; }
     
     len = 1 / len;
     x *= len;

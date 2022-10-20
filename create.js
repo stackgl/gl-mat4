@@ -1,12 +1,14 @@
 module.exports = create;
 
+var GLMAT_ARRAY_TYPE = require('./common').GLMAT_ARRAY_TYPE();
+
 /**
  * Creates a new identity mat4
  *
  * @returns {mat4} a new 4x4 matrix
  */
 function create() {
-    var out = new Float32Array(16);
+    var out = new GLMAT_ARRAY_TYPE(16);
     out[0] = 1;
     out[1] = 0;
     out[2] = 0;

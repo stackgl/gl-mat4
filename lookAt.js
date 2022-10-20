@@ -2,6 +2,8 @@ var identity = require('./identity');
 
 module.exports = lookAt;
 
+var GLMAT_EPSILON = require('./common').GLMAT_EPSILON();
+
 /**
  * Generates a look-at matrix with the given eye position, focal point, and up axis
  *
@@ -23,9 +25,9 @@ function lookAt(out, eye, center, up) {
         centery = center[1],
         centerz = center[2];
 
-    if (Math.abs(eyex - centerx) < 0.000001 &&
-        Math.abs(eyey - centery) < 0.000001 &&
-        Math.abs(eyez - centerz) < 0.000001) {
+    if (Math.abs(eyex - centerx) < GLMAT_EPSILON &&
+        Math.abs(eyey - centery) < GLMAT_EPSILON &&
+        Math.abs(eyez - centerz) < GLMAT_EPSILON) {
         return identity(out);
     }
 
